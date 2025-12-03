@@ -22,7 +22,7 @@ const PostDetail: React.FC = () => {
       } catch (err: any) {
         setError(
           err?.response?.data?.message ??
-            "게시글을 불러오는 중 오류가 발생했어."
+            "게시글을 불러오는 중 오류가 발생했습니다."
         );
       } finally {
         setLoading(false);
@@ -33,7 +33,7 @@ const PostDetail: React.FC = () => {
 
   const handleDelete = async () => {
     if (!post) return;
-    const ok = window.confirm("정말로 이 게시글을 삭제할까?");
+    const ok = window.confirm("정말로 이 게시글을 삭제할까요?");
     if (!ok) return;
     try {
       await deletePost(post.id);
@@ -41,7 +41,7 @@ const PostDetail: React.FC = () => {
     } catch (err: any) {
       alert(
         err?.response?.data?.message ??
-          "게시글 삭제 중 오류가 발생했어."
+          "게시글 삭제 중 오류가 발생했습니다."
       );
     }
   };
@@ -68,7 +68,7 @@ const PostDetail: React.FC = () => {
   if (!post) {
     return (
       <div className="card">
-        <p>게시글을 찾을 수 없어.</p>
+        <p>게시글을 찾을 수 없습니다.</p>
         <button className="btn" onClick={() => navigate("/")}>
           목록으로
         </button>

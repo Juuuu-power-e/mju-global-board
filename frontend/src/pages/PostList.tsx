@@ -22,7 +22,7 @@ const PostList: React.FC = () => {
     } catch (err: any) {
       setError(
         err?.response?.data?.message ??
-          "게시글 목록을 불러오는 중 오류가 발생했어."
+          "게시글 목록을 불러오는 중 오류가 발생했습니다."
       );
     } finally {
       setLoading(false);
@@ -34,7 +34,7 @@ const PostList: React.FC = () => {
   }, [selectedCategory]);
 
   const handleDelete = async (id: number) => {
-    const ok = window.confirm("정말로 이 게시글을 삭제할까?");
+    const ok = window.confirm("정말로 이 게시글을 삭제할까요?");
     if (!ok) return;
     try {
       await deletePost(id);
@@ -42,7 +42,7 @@ const PostList: React.FC = () => {
     } catch (err: any) {
       alert(
         err?.response?.data?.message ??
-          "게시글 삭제 중 오류가 발생했어."
+          "게시글 삭제 중 오류가 발생했습니다."
       );
     }
   };
@@ -67,7 +67,7 @@ const PostList: React.FC = () => {
       {error && <p className="error-text">{error}</p>}
 
       {!loading && posts.length === 0 && (
-        <p>등록된 게시글이 없어.</p>
+        <p>등록된 게시글이 없습니다.</p>
       )}
 
       {!loading && posts.length > 0 && (

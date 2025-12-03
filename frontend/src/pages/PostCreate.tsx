@@ -17,15 +17,15 @@ const PostCreate: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!category) {
-      setError("카테고리를 선택해줘.");
+      setError("카테고리를 선택해주세요.");
       return;
     }
     if (!title.trim()) {
-      setError("제목을 입력해줘.");
+      setError("제목을 입력해주세요.");
       return;
     }
     if (!content.trim()) {
-      setError("내용을 입력해줘.");
+      setError("내용을 입력해주세요.");
       return;
     }
 
@@ -41,7 +41,7 @@ const PostCreate: React.FC = () => {
     } catch (err: any) {
       setError(
         err?.response?.data?.message ??
-          "게시글 생성 중 오류가 발생했어."
+          "게시글 생성 중 오류가 발생했습니다."
       );
     } finally {
       setSubmitting(false);
@@ -68,7 +68,7 @@ const PostCreate: React.FC = () => {
               className="input"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="제목을 입력해줘"
+              placeholder="제목을 입력해주세요"
             />
           </label>
           <label className="form-label">
@@ -77,7 +77,7 @@ const PostCreate: React.FC = () => {
               className="input textarea"
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              placeholder="내용을 입력해줘"
+              placeholder="내용을 입력해주세요"
               rows={10}
             />
           </label>
