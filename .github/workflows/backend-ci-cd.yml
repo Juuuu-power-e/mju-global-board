@@ -56,12 +56,12 @@ jobs:
           IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}"
           echo "New image: $IMAGE"
 
-          sed -i "s|image: .*/${{ env.IMAGE_NAME }}:.*|image: ${IMAGE}|" k8s/backend.yaml
-
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
           git pull --rebase origin main
+
+          sed -i "s|image: .*/${{ env.IMAGE_NAME }}:.*|image: ${IMAGE}|" k8s/backend.yaml
 
           git add k8s/backend.yaml
           git commit -m "chore: update backend image to ${IMAGE} [skip ci]" || echo "No changes to commit"
