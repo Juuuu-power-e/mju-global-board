@@ -1,0 +1,54 @@
+############################
+# Global
+############################
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+
+############################
+# Node / Frontend
+############################
+frontend/node_modules/
+frontend/.vite/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+frontend/.eslintcache
+
+############################
+# Java / Spring Boot Backend
+############################
+backend/build/
+backend/out/
+backend/.gradle/
+backend/gradle-app.setting
+
+# Gradle
+.gradle/
+build/
+
+# Spring Boot local config
+backend/src/main/resources/application-local.yml
+backend/src/main/resources/application-secret.yml
+
+############################
+# IDE Settings
+############################
+.vscode/
+.idea/
+*.iml
+
+############################
+# OS / Misc
+############################
+*.bak
+*.orig
+*.class
+
+############################
+# Docker ignores
+############################
+docker-compose.override.yml
