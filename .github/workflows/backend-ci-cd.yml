@@ -56,6 +56,9 @@ jobs:
           IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}"
           echo "New image: $IMAGE"
 
+          git reset --hard HEAD
+          git clean -fd
+
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
@@ -65,4 +68,5 @@ jobs:
 
           git add k8s/backend.yaml
           git commit -m "chore: update backend image to ${IMAGE} [skip ci]" || echo "No changes to commit"
-          git push
+
+          git push origin HEAD:main
