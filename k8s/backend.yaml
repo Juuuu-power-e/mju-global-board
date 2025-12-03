@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: mju-global-board-be
-          image: 3tmdwn3/mju-global-board-be:9ddc0f6550a4e4c9d8019be1e190dcd5e5d706e9
+          image: 3tmdwn3/mju-global-board-be:4a1d21180c5d0ae7c76a03774f68510b7dbfa1c9
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
