@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/YOUR_GITHUB_ID/mju-global-board.git
+    repoURL: https://github.com/Juuuu-power-e/mju-global-board.git
     targetRevision: main
     path: k8s
   destination:
