@@ -6,6 +6,9 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -14,11 +17,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            // 🔥 CSRF 완전히 끔
             .csrf(csrf -> csrf.disable())
-            // CORS도 일단 기본값으로
-            .cors(Customizer.withDefaults())
-            // 🔥 모든 요청 허용
+            .cors(cors -> cors.configurationSource(request -> {
+                CorsConfiguration config = new CorsConfiguration();
+                config.setAllowedOriginPatterns(List.of("*"));
+                config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+                config.setAllowedHeaders(List.of("*"));
+                config.setAllowCredentials(false);
+                return config;
+            }))
             .authorizeHttpRequests(auth -> auth
                 .anyRequest().permitAll()
             );
