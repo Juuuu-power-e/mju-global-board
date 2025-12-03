@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mju-global-board-be
+  namespace: mju-board
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mju-global-board-be
+  template:
+    metadata:
+      labels:
+        app: mju-global-board-be
+    spec:
+      containers:
+        - name: mju-global-board-be
+          image: YOUR_DOCKERHUB_USERNAME/mju-global-board-be:initial
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            # 필요하면 프로파일, DB 설정 등 여기 추가
+            - name: SPRING_PROFILES_ACTIVE
+              value: "prod"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mju-global-board-be
+  namespace: mju-board
+spec:
+  selector:
+    app: mju-global-board-be
+  ports:
+    - port: 8080
+      targetPort: 8080
