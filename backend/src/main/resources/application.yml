@@ -37,9 +37,9 @@ management:
       prometheus:
         enabled: true
 
-# 개발용 CORS (나중에 프로덕션에서는 origin 제한하자)
 mju:
   cors:
     allowed-origins:
-      - "http://localhost:5173"
-      - "http://localhost:3000"
+      - 'http://localhost:5173'
+      - 'http://localhost:3000'
+      - 'http://mju-board.local:8080'
