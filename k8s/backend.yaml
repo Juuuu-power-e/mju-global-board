@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: mju-global-board-be
-          image: YOUR_DOCKERHUB_USERNAME/mju-global-board-be:initial
+          image: 3tmdwn3/mju-global-board-be:2d4d3d8f32f4e796a38ed656a7b833d3ba5c3370
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
